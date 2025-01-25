@@ -30,95 +30,224 @@ let quizState = {
     currentOrder: [],
     selectedMultiAnswers: []
 };
-
 const questions = [
     {
-        question: 'What is the recommended size of a Scrum team?',
+        question: "Qu'est-ce qu'Agile ?",
         answers: [
-            { text: '3-9 members', correct: true },
-            { text: '10-15 members', correct: false },
-            { text: '1-3 members', correct: false },
-            { text: '20+ members', correct: false }
+            { text: "Une méthodologie rigide pour la gestion de projets", correct: false },
+            { text: "Une philosophie qui met l'accent sur la flexibilité et la collaboration", correct: true },
+            { text: "Un outil de gestion de tâches", correct: false },
+            { text: "Un langage de programmation", correct: false }
         ],
-        explanation: 'The ideal Scrum team size is 3-9 members. This size allows for diverse skills while maintaining effective communication and coordination.',
+        explanation: "Agile est une philosophie centrée sur la flexibilité et la collaboration, permettant une adaptation continue aux changements.",
         difficulty: 1
     },
     {
-        question: 'How long is a typical Sprint?',
+        question: "Quel est le rôle du Product Owner (PO) dans Scrum ?",
         answers: [
-            { text: '1 week', correct: false },
-            { text: '2 weeks', correct: true },
-            { text: '1 month', correct: false },
-            { text: '3 months', correct: false }
+            { text: "Gérer les ressources financières du projet", correct: false },
+            { text: "Représenter les intérêts des clients et définir les priorités du produit", correct: true },
+            { text: "Superviser l'équipe de développement", correct: false },
+            { text: "Tester le logiciel", correct: false }
         ],
-        explanation: 'A typical Sprint lasts 2 weeks. This duration provides a balance between making meaningful progress and adapting to changes quickly.',
+        explanation: "Le Product Owner est responsable de maximiser la valeur du produit en priorisant le Product Backlog.",
+        difficulty: 2
+    },
+    {
+        question: "Quelle est la durée typique d'un Sprint dans Scrum ?",
+        answers: [
+            { text: "1 semaine", correct: false },
+            { text: "2 à 4 semaines", correct: true },
+            { text: "6 mois", correct: false },
+            { text: "1 jour", correct: false }
+        ],
+        explanation: "Un Sprint dure généralement entre 2 et 4 semaines pour maintenir un rythme soutenable.",
         difficulty: 1
     },
     {
-        question: 'Who is responsible for managing the Product Backlog?',
+        question: "Quel est l'objectif du Daily Scrum ?",
         answers: [
-            { text: 'Scrum Master', correct: false },
-            { text: 'Development Team', correct: false },
-            { text: 'Product Owner', correct: true },
-            { text: 'Stakeholders', correct: false }
+            { text: "Planifier le projet entier", correct: false },
+            { text: "Synchroniser l'équipe et identifier les obstacles", correct: true },
+            { text: "Présenter le produit final au client", correct: false },
+            { text: "Tester le logiciel", correct: false }
         ],
-        explanation: 'The Product Owner is responsible for managing the Product Backlog. They prioritize items and ensure the backlog reflects the product vision.',
+        explanation: "Le Daily Scrum permet à l'équipe de se synchroniser et d'identifier rapidement les blocages.",
         difficulty: 2
     },
     {
-        question: 'What is the main purpose of the Daily Scrum?',
+        question: "Qu'est-ce qu'un Product Backlog ?",
         answers: [
-            { text: 'Plan for the day', correct: true },
-            { text: 'Report to management', correct: false },
-            { text: 'Solve problems', correct: false },
-            { text: 'Assign tasks', correct: false }
+            { text: "Une liste de bugs à corriger", correct: false },
+            { text: "Une liste priorisée des fonctionnalités à développer", correct: true },
+            { text: "Un rapport financier du projet", correct: false },
+            { text: "Un document de conception technique", correct: false }
         ],
-        explanation: 'The main purpose of the Daily Scrum is to plan for the day. Team members synchronize their work and plan for the next 24 hours.',
-        difficulty: 3
-    },
-    {
-        question: 'Which of these is NOT a Scrum artifact?',
-        answers: [
-            { text: 'Product Backlog', correct: false },
-            { text: 'Sprint Backlog', correct: false },
-            { text: 'Burndown Chart', correct: true },
-            { text: 'Increment', correct: false }
-        ],
-        explanation: 'The Burndown Chart is not an official Scrum artifact. The three Scrum artifacts are Product Backlog, Sprint Backlog, and Increment.',
-        difficulty: 3
-    },
-    {
-        type: 'sort',
-        question: 'Arrange the Scrum events in chronological order:',
-        answers: [
-            { text: 'Daily Scrum', correctOrder: 2 },
-            { text: 'Sprint Planning', correctOrder: 1 },
-
-            { text: 'Sprint Retrospective', correctOrder: 4 },
-            { text: 'Sprint Review', correctOrder: 3 }
-
-        ],
-        explanation: 'Correct order: 1) Sprint Planning, 2) Daily Scrum, 3) Sprint Review, 4) Sprint Retrospective. These events create regularity and minimize need for other meetings.',
-        difficulty: 3
-    },
-    {
-        type: 'multi-select',
-        question: 'Which of these are Scrum values? (Select all that apply)',
-        answers: [
-            { text: 'Courage', correct: true },
-            { text: 'Commitment', correct: true },  
-            { text: 'Focus', correct: true },
-            { text: 'Respect', correct: true },
-            { text: 'Openness', correct: true },    
-            { text: 'Transparency', correct: false }, 
-            { text: 'Documentation', correct: false },
-            { text: 'Micromanagement', correct: false }
-        ],
-        explanation: 'The five Scrum values are: Courage, Focus, Commitment, Respect, and Openness.',
+        explanation: "Le Product Backlog est une liste dynamique et priorisée des exigences du produit.",
         difficulty: 2
+    },
+    {
+        question: "Quel événement Scrum permet à l'équipe de réfléchir sur le sprint passé ?",
+        answers: [
+            { text: "Sprint Planning", correct: false },
+            { text: "Sprint Review", correct: false },
+            { text: "Sprint Retrospective", correct: true },
+            { text: "Daily Scrum", correct: false }
+        ],
+        explanation: "La Sprint Retrospective est dédiée à l'amélioration continue des processus.",
+        difficulty: 2
+    },
+    {
+        question: "Quel artefact visuel est utilisé pour suivre l'avancement d'un sprint ?",
+        answers: [
+            { text: "Sprint Backlog", correct: false },
+            { text: "Burndown Chart", correct: true },
+            { text: "Product Backlog", correct: false }
+        ],
+        explanation: "Le Burndown Chart montre visuellement le travail restant dans le sprint.",
+        difficulty: 2
+    },
+    {
+        question: "Quelle est la taille optimale pour une équipe Scrum ?",
+        answers: [
+            { text: "1 à 3 membres", correct: false },
+            { text: "3 à 9 membres", correct: true },
+            { text: "10 à 15 membres", correct: false },
+            { text: "Aucun maximum", correct: false }
+        ],
+        explanation: "Une équipe de 3 à 9 membres favorise la communication tout en restant efficace.",
+        difficulty: 1
+    },
+    {
+        question: "Que contient le Sprint Backlog ?",
+        answers: [
+            { text: "Toutes les fonctionnalités prévues", correct: false },
+            { text: "Les éléments sélectionnés du Product Backlog", correct: true },
+            { text: "Les tâches assignées par le Scrum Master", correct: false }
+        ],
+        explanation: "Le Sprint Backlog contient les éléments choisis pour le sprint et les tâches associées.",
+        difficulty: 2
+    },
+    {
+        question: "Lors de quelle réunion présente-t-on les résultats du sprint ?",
+        answers: [
+            { text: "Daily Scrum", correct: false },
+            { text: "Sprint Review", correct: true },
+            { text: "Sprint Planning", correct: false },
+            { text: "Sprint Retrospective", correct: false }
+        ],
+        explanation: "La Sprint Review permet de présenter l'incrément aux stakeholders.",
+        difficulty: 2
+    },
+    {
+        question: "Quel est le rôle du Scrum Master ?",
+        answers: [
+            { text: "Gérer les tâches de l'équipe", correct: false },
+            { text: "Faciliter le processus Scrum", correct: true },
+            { text: "Définir les fonctionnalités", correct: false },
+            { text: "Tester le logiciel", correct: false }
+        ],
+        explanation: "Le Scrum Master est un servant-leader qui facilite l'adoption de Scrum.",
+        difficulty: 3
+    },
+    {
+        question: "Quelle est la première étape du Sprint Planning ?",
+        answers: [
+            { text: "Identifier les obstacles", correct: false },
+            { text: "Sélectionner les tâches du Product Backlog", correct: true },
+            { text: "Tester les fonctionnalités", correct: false },
+            { text: "Faire une rétrospective", correct: false }
+        ],
+        explanation: "Le Sprint Planning commence par la sélection des éléments du Product Backlog.",
+        difficulty: 2
+    },
+    {
+        question: "Qu'est-ce qu'un incrément dans Scrum ?",
+        answers: [
+            { text: "Une version non testée", correct: false },
+            { text: "Une fonctionnalité non utilisable", correct: false },
+            { text: "Un livrable fonctionnel", correct: true }
+        ],
+        explanation: "L'incrément doit être dans un état utilisable et potentiellement livrable.",
+        difficulty: 3
+    },
+    // Nouvelles questions de tri
+    {
+        type: "sort",
+        question: "Classez les rôles Scrum par ordre d'implication dans le Product Backlog :",
+        answers: [
+            { text: "Product Owner", correctOrder: 1 },
+            { text: "Équipe de Développement", correctOrder: 2 },
+            { text: "Stakeholders", correctOrder: 3 }
+        ],
+        explanation: "Ordre : 1) Product Owner (priorisation), 2) Équipe de Dev (estimation), 3) Stakeholders (feedback).",
+        difficulty: 3
+    },
+    {
+        type: "sort",
+        question: "Ordre des activités dans un Sprint :",
+        answers: [
+            { text: "Revue de code", correctOrder: 2 },
+            { text: "Développement", correctOrder: 1 },
+            { text: "Documentation", correctOrder: 4 },
+            { text: "Tests d'acceptation", correctOrder: 3 },
+        ],
+        explanation: "Le flux standard : Développement → Revue → Tests → Documentation.",
+        difficulty: 2
+    },
+    {
+        type: "sort",
+        question: "Étapes de la résolution d'un obstacle :",
+        answers: [
+            { text: "Identifier l'obstacle", correctOrder: 1 },
+            { text: "Implémenter la solution", correctOrder: 4 },
+            { text: "Proposer des solutions", correctOrder: 3 },
+            { text: "Analyser les causes", correctOrder: 2 },
+        ],
+        explanation: "Processus standard de résolution de problèmes en Scrum.",
+        difficulty: 3
+    },
+    // Nouvelles questions multi-sélection
+    {
+        type: "multi-select",
+        question: "Quels sont les artefacts Scrum ? (Sélectionnez tous les bons)",
+        answers: [
+            { text: "Product Backlog", correct: true },
+            { text: "Burndown Chart", correct: false },
+            { text: "Sprint Backlog", correct: true },
+            { text: "Tableau Kanban", correct: false },
+            { text: "Increment", correct: true }
+        ],
+        explanation: "Les 3 artefacts officiels : Product Backlog, Sprint Backlog, Increment.",
+        difficulty: 3
+    },
+    {
+        type: "multi-select",
+        question: "Quels événements ont une durée fixe ?",
+        answers: [
+            { text: "Sprint Planning", correct: true },
+            { text: "Daily Scrum", correct: true },
+            { text: "Sprint Retrospective", correct: true },
+            { text: "Revue de code", correct: false },
+            { text: "Atelier de conception", correct: false }
+        ],
+        explanation: "Tous les événements Scrum ont une durée fixe sauf les activités techniques.",
+        difficulty: 2
+    },
+    {
+        type: "multi-select",
+        question: "Quelles sont les responsabilités du Scrum Master ?",
+        answers: [
+            { text: "Faciliter les réunions", correct: true },
+            { text: "Rédiger les user stories", correct: false },
+            { text: "Supprimer les obstacles", correct: true },
+            { text: "Prioriser le backlog", correct: false },
+            { text: "Coacher l'équipe", correct: true }
+        ],
+        explanation: "Le Scrum Master facilite, coach et supprime les obstacles, mais ne gère pas le contenu.",
+        difficulty: 3
     }
 ];
-
 function init() {
     document.getElementById('start-button').addEventListener('click', startQuiz);
     document.getElementById('next-button').addEventListener('click', nextQuestion);
@@ -386,18 +515,17 @@ function showExplanation() {
         }
     } else if (currentQuestion.type === 'multi-select') {
         const selectedAnswers = quizState.selectedMultiAnswers;
-        const correctAnswers = currentQuestion.answers.filter(a => a.correct);
         
         currentQuestion.answers.forEach(answer => {
             const div = document.createElement('div');
             const wasSelected = selectedAnswers.some(selected => selected.text === answer.text);
             
-            // Dynamic class assignment
+            // Highlighting logic
             let stateClass = '';
             if (answer.correct) {
-                stateClass = 'correct'; // Always highlight correct answers
-            } else if (wasSelected) {
-                stateClass = 'wrong'; // Highlight incorrectly selected answers
+                stateClass = wasSelected ? 'correct' : 'wrong'; // Green if selected, red if missed
+            } else {
+                stateClass = wasSelected ? 'wrong' : 'correct'; // Red if selected, green if avoided
             }
             
             div.className = `explanation-answer-item multi-select-item ${stateClass}`;
@@ -406,7 +534,8 @@ function showExplanation() {
             elements.explanationAnswers.appendChild(div);
         });
 
-        // Update scoring logic
+        // Scoring logic
+        const correctAnswers = currentQuestion.answers.filter(a => a.correct);
         const allCorrectSelected = correctAnswers.every(ca => 
             selectedAnswers.some(sa => sa.text === ca.text)
         );
@@ -417,22 +546,35 @@ function showExplanation() {
             elements.score.textContent = quizState.score;
         }
     } else {
+        let isCorrect = false;
+        
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement('button');
             button.className = 'btn';
             button.textContent = answer.text;
+            
             if (answer.correct) {
                 button.classList.add('correct');
-            } else if (quizState.selectedAnswer === answer) {
+                if (quizState.selectedAnswer?.text === answer.text) {
+                    isCorrect = true;
+                }
+            } else if (quizState.selectedAnswer?.text === answer.text) {
                 button.classList.add('wrong');
             }
+            
             elements.explanationAnswers.appendChild(button);
         });
+
+        if (isCorrect) {
+            quizState.score++;
+            elements.score.textContent = quizState.score;
+        }
     }
     
     elements.explanationText.textContent = currentQuestion.explanation;
     showScreen('explanation');
 }
+
 
 function nextQuestion() {
     quizState.currentIndex++;
