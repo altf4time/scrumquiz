@@ -311,6 +311,13 @@ function loadQuestion() {
     elements.sortContainer.innerHTML = '';
     elements.multiSelectContainer.innerHTML = '';
     
+    // Reset all interactive elements
+    elements.answers.classList.remove('hidden');
+    elements.sortContainer.classList.add('hidden');
+    elements.multiSelectContainer.classList.add('hidden');
+    elements.submitSort.classList.add('hidden');
+    elements.submitMulti.classList.add('hidden');
+
     if (currentQuestion.type === 'sort') {
         elements.answers.classList.add('hidden');
         elements.sortContainer.classList.remove('hidden');
@@ -318,7 +325,6 @@ function loadQuestion() {
         createSortableItems();
     } else if (currentQuestion.type === 'multi-select') {
         elements.answers.classList.add('hidden');
-        elements.sortContainer.classList.add('hidden');
         elements.multiSelectContainer.classList.remove('hidden');
         elements.submitMulti.classList.remove('hidden');
         
@@ -341,10 +347,6 @@ function loadQuestion() {
             elements.multiSelectContainer.appendChild(div);
         });
     } else {
-        elements.answers.classList.remove('hidden');
-        elements.sortContainer.classList.add('hidden');
-        elements.submitSort.classList.add('hidden');
-        elements.submitMulti.classList.add('hidden');
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement('button');
             button.className = 'btn';

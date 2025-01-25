@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrum Master Quiz</title>
+    <title>Quiz Maître Scrum</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,20 +16,62 @@
             <span id="time-left">15</span>
         </div>
         
+        <!-- Écran de démarrage -->
         <div id="start-screen" class="screen active">
-            <h1>Scrum Master Quiz</h1>
-            <p>Test your knowledge of Scrum and Agile methodologies!</p>
+            <div class="header-section">
+                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" 
+                     alt="Illustration Scrum" 
+                     class="header-image">
+                <h1>Maîtrisez le Framework Scrum</h1>
+            </div>
+            
+            <div class="quiz-intro">
+                <div class="info-box">
+                    <h2>📚 Ce que vous apprendrez :</h2>
+                    <ul>
+                        <li>Rôles et responsabilités Scrum</li>
+                        <li>Principes et valeurs Agile</li>
+                        <li>Planification et exécution des Sprints</li>
+                        <li>Artéfacts et cérémonies</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h2>🎯 Fonctionnalités du quiz :</h2>
+                    <ul>
+                        <li>15 questions stimulantes</li>
+                        <li>Plusieurs types de questions</li>
+                        <li>Feedback immédiat</li>
+                        <li>Explications détaillées</li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="sorting-options">
-                <label for="sort-type">Question Order:</label>
+                <label for="sort-type">Ordre des questions :</label>
                 <select id="sort-type" class="btn">
-                    <option value="random">Randomized</option>
-                    <option value="original">Original Order</option>
-                    <option value="hardest">Hardest First</option>
+                    <option value="random">Aléatoire</option>
+                    <option value="original">Ordre original</option>
+                    <option value="hardest">Difficulté croissante</option>
                 </select>
             </div>
-            <button id="start-button" class="btn">Start Quiz</button>
+
+            <button id="start-button" class="btn start-btn">Commencer le quiz →</button>
+
+            <div class="student-credits">
+                <h3>Réalisé par :</h3>
+                <div class="student-list">
+                    <span class="student-member">Hachani Mohamed Said</span>
+                    <span class="student-member">Jassem Lazaar</span>
+                    <span class="student-member">Aziz Amri</span>
+                    <span class="student-member">Rayen Neji</span>
+                    <span class="student-member">Amir ben ali</span>
+
+                </div>
+            </div>
         </div>
 
+        <!-- Écran des questions -->
         <div id="question-screen" class="screen">
             <div id="question-container">
                 <h2 id="question"></h2>
@@ -41,28 +83,30 @@
                 <div id="progress-bar">
                     <div id="progress"></div>
                 </div>
-                <p id="score">Score: <span id="score-value">0</span></p>
-                <button id="submit-sort" class="btn hidden">Submit Order</button>
-                <button id="submit-multi" class="btn hidden">Submit Selection</button>
+                <p id="score">Score : <span id="score-value">0</span></p>
+                <button id="submit-sort" class="btn hidden">Valider l'ordre</button>
+                <button id="submit-multi" class="btn hidden">Valider la sélection</button>
             </div>
         </div>
 
+        <!-- Écran d'explication -->
         <div id="explanation-screen" class="screen">
             <div class="explanation-content">
                 <h2 id="explanation-question"></h2>
                 <div id="explanation-answers" class="btn-grid"></div>
                 <div class="explanation-card">
-                    <h3>Explanation:</h3>
+                    <h3>Explication :</h3>
                     <p id="explanation-text"></p>
                 </div>
-                <button id="next-button" class="btn">Next Question</button>
+                <button id="next-button" class="btn">Question suivante</button>
             </div>
         </div>
 
+        <!-- Écran de fin -->
         <div id="end-screen" class="screen">
-            <h2>Quiz Completed!</h2>
-            <p>Your final score: <span id="final-score"></span></p>
-            <button id="restart-button" class="btn">Restart Quiz</button>
+            <h2>Quiz terminé !</h2>
+            <p>Score final : <span id="final-score"></span></p>
+            <button id="restart-button" class="btn">Recommencer</button>
         </div>
     </div>
     <script src="script.js"></script>

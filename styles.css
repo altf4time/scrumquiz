@@ -289,3 +289,113 @@ body {
     background-color: #f44336 !important;
     color: white !important;
 }
+
+/* Add these new styles */
+.header-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header-image {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.quiz-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 2rem 0;
+}
+
+.info-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.info-box h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    color: #667eea;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-box li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.info-box li::before {
+    content: "•";
+    color: #667eea;
+    margin-right: 10px;
+}
+
+.start-btn {
+    background: #4CAF50;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    margin: 2rem 0;
+}
+
+.start-btn:hover {
+    background: #45a049;
+}
+
+.student-credits {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 2px solid #eee;
+}
+
+.student-credits h3 {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.student-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.student-list span {
+    background: #f0f0f0;
+    padding: 5px 5px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .quiz-intro {
+        grid-template-columns: 0.5fr;
+    }
+    
+    .header-image {
+        width: 150px;
+    }
+    
+    .start-btn {
+        width: 100%;
+    }
+}
+
+.student-member{
+    background: #f0f0f0;
+    padding: 8px 5px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
