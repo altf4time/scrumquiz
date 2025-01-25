@@ -26,7 +26,7 @@ let quizState = {
     currentIndex: 0,
     score: 0,
     timer: null,
-    timePerQuestion: 15,
+    timePerQuestion: 25,
     selectedAnswer: null,
     sortType: 'random',
     currentOrder: [],
@@ -74,7 +74,7 @@ function startQuiz() {
         currentIndex: 0,
         score: 0,
         timer: null,
-        timePerQuestion: 15,
+        timePerQuestion: 25,
         selectedAnswer: null,
         sortType: sortType,
         currentOrder: [],
@@ -134,9 +134,24 @@ function handleSortQuestion(question) {
     elements.answers.classList.add('hidden');
     elements.sortContainer.classList.remove('hidden');
     elements.submitSort.classList.remove('hidden');
-    createSortableItems(question);
-}
 
+    // Clear previous content
+    elements.sortContainer.innerHTML = '';
+
+    // Add fixed sorting direction label
+    const sortLabel = document.createElement('div');
+    sortLabel.className = 'sort-direction-label';
+    sortLabel.innerHTML = `
+        <span class="arrow-up">&#9650;</span>
+        <span class="label-text">Classez les éléments du plus important au moins important</span>
+        <span class="arrow-down">&#9660;</span>
+    `;
+    elements.sortContainer.appendChild(sortLabel);
+
+    // Create sortable items below the label
+    createSortableItems(question);
+    
+}
 function handleMultiSelectQuestion(question) {
     elements.answers.classList.add('hidden');
     elements.multiSelectContainer.classList.remove('hidden');

@@ -142,18 +142,18 @@ const questions = [
     // Nouvelles questions de tri
     {
         type: "sort",
-        question: "Classez les rôles Scrum par ordre d'implication dans le Product Backlog :",
+        question: "Classez ces éléments par ordre d'implication dans la gestion du Product Backlog (du plus impliqué au moins impliqué) :",
         answers: [
-            { text: "Product Owner", correctOrder: 1 },
             { text: "Équipe de Développement", correctOrder: 2 },
-            { text: "Stakeholders", correctOrder: 3 }
+            { text: "Stakeholders", correctOrder: 3 },
+            { text: "Product Owner", correctOrder: 1 },
         ],
         explanation: "Ordre : 1) Product Owner (priorisation), 2) Équipe de Dev (estimation), 3) Stakeholders (feedback).",
         difficulty: 3
     },
     {
         type: "sort",
-        question: "Ordre des activités dans un Sprint :",
+        question: "Remettez dans l'ordre les étapes clés d'un Sprint :",
         answers: [
             { text: "Revue de code", correctOrder: 2 },
             { text: "Développement", correctOrder: 1 },
@@ -165,7 +165,7 @@ const questions = [
     },
     {
         type: "sort",
-        question: "Étapes de la résolution d'un obstacle :",
+        question: "Classez ces étapes par ordre logique pour résoudre un obstacle en Scrum :",
         answers: [
             { text: "Identifier l'obstacle", correctOrder: 1 },
             { text: "Implémenter la solution", correctOrder: 4 },
@@ -191,7 +191,7 @@ const questions = [
     },
     {
         type: "multi-select",
-        question: "Quels événements ont une durée fixe ?",
+        question: "Quels événements ont une durée fixe ? (Sélectionnez tous les bons)",
         answers: [
             { text: "Sprint Planning", correct: true },
             { text: "Daily Scrum", correct: true },
@@ -204,7 +204,7 @@ const questions = [
     },
     {
         type: "multi-select",
-        question: "Quelles sont les responsabilités du Scrum Master ?",
+        question: "Quelles sont les responsabilités du Scrum Master ? (Sélectionnez tous les bons)",
         answers: [
             { text: "Faciliter les réunions", correct: true },
             { text: "Rédiger les user stories", correct: false },
@@ -215,54 +215,34 @@ const questions = [
         explanation: "Le Scrum Master facilite, coach et supprime les obstacles, mais ne gère pas le contenu.",
         difficulty: 3
     },
-    // {
-    //     type: "map",
-    //     question: "Sélectionnez le pays où le framework Scrum a été officiellement défini pour la première fois :",
-    //     mapSVG: "world-map.svg",
-    //     correctCountry: "us",
-    //     explanation: "Scrum a été formalisé aux États-Unis par Jeff Sutherland et Ken Schwaber en 1995.",
-    //     difficulty: 2
-    // },
-    // {
-    //     type: "map",
-    //     question: "Où est né le mouvement Agile qui a influencé Scrum ?",
-    //     mapSVG: "world-map.svg",
-    //     correctCountry: "jp",
-    //     explanation: "Bien que le manifeste Agile ait été signé aux USA, les concepts clés viennent du système de production Toyota au Japon.",
-    //     difficulty: 3
-    // },
-    // {
-    //     type: "map",
-    //     question: "Dans quel pays a été signé le Manifeste Agile ?",
-    //     mapSVG: "world-map.svg",
-    //     correctCountry: "us",
-    //     explanation: "Le Manifeste Agile a été rédigé en 2001 dans l'Utah, aux États-Unis.",
-    //     difficulty: 2
-    // },
-    {
-        type: "map",
-        question: "Dans quel pays est né le framework SAFe (Scaled Agile Framework)?",
-        correctCountry: "us",
-        explanation: "SAFe a été développé par Dean Leffingwell aux États-Unis pour adapter Agile aux grandes entreprises.",
-        difficulty: 2
-    },
 
-    // Nouvelle question 2
     {
         type: "map",
-        question: "Où a été créée la méthodologie Kanban pour le développement logiciel?",
+        question: "Quel pays a inspiré les concepts d'amélioration continue utilisés dans les rétrospectives Scrum ?",
         correctCountry: "jp",
-        explanation: "Kanban a été adapté au développement logiciel par Toyota au Japon, inspiré de leur système de production.",
+        explanation: "Le Kaizen (amélioration continue) vient du système de production Toyota développé au Japon, qui a influencé les pratiques Agile.",
         difficulty: 3
     },
-
-    // Nouvelle question 3
     {
         type: "map",
-        question: "Dans quel pays a émergé la méthode Extreme Programming (XP)?",
-        correctCountry: "us",
-        explanation: "XP a été formalisé par Kent Beck aux États-Unis dans les années 1990.",
+        question: "Où est né le concept de Product Backlog dans le framework Scrum ?",
+        correctCountry: "us", 
+        explanation: "Le Product Backlog est un artefact central du Scrum officiellement défini lors de la création du framework aux États-Unis en 1995.",
         difficulty: 2
+    },
+    {
+        type: "map",
+        question: "Quel pays a inspiré le terme 'Scrum' issu du rugby ?",
+        correctCountry: "gb",
+        explanation: "Le terme Scrum vient du rugby britannique, métaphore choisie pour l'importance du travail d'équipe.",
+        difficulty: 2
+    },
+    {
+        type: "map",
+        question: "Dans quel pays européen est né le premier framework Agile inspirant Scrum ?",
+        correctCountry: "dk",
+        explanation: "Le framework DSDM (1994), précurseur d'Agile, a été développé au Danemark avant Scrum (1995).",
+        difficulty: 3
     }
 
 ];
